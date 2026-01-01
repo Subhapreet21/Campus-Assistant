@@ -1,10 +1,10 @@
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../contexts/AuthContext';
 import { useUser } from '@clerk/clerk-react';
-import { Check, Shield, GraduationCap, School, Loader2 } from 'lucide-react';
-import clsx from 'clsx';
+import { Shield, GraduationCap, School, Loader2 } from 'lucide-react';
+
 import { toast } from 'sonner';
 
 export const Onboarding = () => {

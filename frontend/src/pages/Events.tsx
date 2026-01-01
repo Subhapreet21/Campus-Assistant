@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { useAuth } from '../contexts/AuthContext';
-import { Loader2, Plus, Calendar, MapPin, Clock, Trash2 } from 'lucide-react';
+import { Loader2, Plus, Calendar, MapPin, Trash2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { DeleteConfirmationModal } from '../components/ui/DeleteConfirmationModal';
 

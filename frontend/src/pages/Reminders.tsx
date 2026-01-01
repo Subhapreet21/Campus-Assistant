@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { useAuth } from '../contexts/AuthContext';
-import { Loader2, Plus, Trash2, CheckCircle2, Circle, Calendar, Tag, Edit2, Bell, X } from 'lucide-react';
+import { Loader2, Plus, Trash2, CheckCircle2, Circle, Calendar, Tag, Edit2 } from 'lucide-react';
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DeleteConfirmationModal } from '../components/ui/DeleteConfirmationModal';
