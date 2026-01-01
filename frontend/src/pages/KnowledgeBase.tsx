@@ -37,7 +37,7 @@ export const KnowledgeBase = () => {
     const fetchArticles = async () => {
         try {
             const token = await getToken();
-            const res = await fetch('http://localhost:8000/api/kb', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/kb`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -58,7 +58,7 @@ export const KnowledgeBase = () => {
         setLoading(true);
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/kb/search?query=${encodeURIComponent(searchQuery)}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/kb/search?query=${encodeURIComponent(searchQuery)}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -74,7 +74,7 @@ export const KnowledgeBase = () => {
         e.preventDefault();
         try {
             const token = await getToken();
-            const res = await fetch('http://localhost:8000/api/kb', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/kb`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export const KnowledgeBase = () => {
         if (!editForm) return;
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/kb/${editForm.id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/kb/${editForm.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ export const KnowledgeBase = () => {
         if (!selectedArticle) return;
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/kb/${selectedArticle.id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/kb/${selectedArticle.id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

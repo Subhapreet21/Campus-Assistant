@@ -64,7 +64,7 @@ export const Timetable = () => {
             const token = await getToken();
             const queryParams = new URLSearchParams(filters).toString();
             // Students ignore query params in backend, so always safe to send
-            const url = `http://localhost:8000/api/timetable?${queryParams}`;
+            const url = `${import.meta.env.VITE_API_URL}/api/timetable?${queryParams}`;
 
             const res = await fetch(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
@@ -116,8 +116,8 @@ export const Timetable = () => {
         try {
             const token = await getToken();
             const url = editingEntry
-                ? `http://localhost:8000/api/timetable/${editingEntry.id}`
-                : 'http://localhost:8000/api/timetable';
+                ? `${import.meta.env.VITE_API_URL}/api/timetable/${editingEntry.id}`
+                : `${import.meta.env.VITE_API_URL}/api/timetable`;
 
             const method = editingEntry ? 'PUT' : 'POST';
 
@@ -153,7 +153,7 @@ export const Timetable = () => {
 
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/timetable/${classToDelete.id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/timetable/${classToDelete.id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

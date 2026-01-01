@@ -60,7 +60,7 @@ export const Events = () => {
     const fetchEvents = async () => {
         try {
             const token = await getToken();
-            const res = await fetch('http://localhost:8000/api/events', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -83,8 +83,8 @@ export const Events = () => {
         try {
             const token = await getToken();
             const url = editingEvent
-                ? `http://localhost:8000/api/events/${editingEvent.id}`
-                : 'http://localhost:8000/api/events';
+                ? `${import.meta.env.VITE_API_URL}/api/events/${editingEvent.id}`
+                : `${import.meta.env.VITE_API_URL}/api/events`;
 
             const method = editingEvent ? 'PUT' : 'POST';
 
@@ -120,7 +120,7 @@ export const Events = () => {
 
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/events/${eventToDelete.id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events/${eventToDelete.id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

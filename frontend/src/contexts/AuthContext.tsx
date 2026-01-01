@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                     const token = await getToken();
                     if (!token) return;
 
-                    const res = await fetch('http://localhost:8000/api/auth/sync', {
+                    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/sync`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

@@ -28,7 +28,7 @@ export const Profile = () => {
     const fetchProfile = async () => {
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/profile`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -50,7 +50,7 @@ export const Profile = () => {
         setSaving(true);
         try {
             const token = await getToken();
-            const res = await fetch('http://localhost:8000/api/profile', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

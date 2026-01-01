@@ -43,7 +43,7 @@ export const Reminders = () => {
         try {
             if (!user) return;
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/reminders`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/reminders`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -63,8 +63,8 @@ export const Reminders = () => {
             const dueAtISO = new Date(newReminder.due_at).toISOString();
 
             const url = editingId
-                ? `http://localhost:8000/api/reminders/${editingId}`
-                : 'http://localhost:8000/api/reminders';
+                ? `${import.meta.env.VITE_API_URL}/api/reminders/${editingId}`
+                : `${import.meta.env.VITE_API_URL}/api/reminders`;
 
             const method = editingId ? 'PUT' : 'POST';
 
@@ -111,7 +111,7 @@ export const Reminders = () => {
     const toggleStatus = async (id: string, currentStatus: boolean) => {
         try {
             const token = await getToken();
-            await fetch(`http://localhost:8000/api/reminders/${id}`, {
+            await fetch(`${import.meta.env.VITE_API_URL}/api/reminders/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ export const Reminders = () => {
 
         try {
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/reminders/${reminderToDelete}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/reminders/${reminderToDelete}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

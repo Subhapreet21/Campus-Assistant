@@ -29,7 +29,7 @@ export const Chat = () => {
             if (!getToken) return;
             try {
                 const token = await getToken();
-                const res = await fetch('http://localhost:8000/api/reminders', {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/reminders`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const data = await res.json();
@@ -74,7 +74,7 @@ export const Chat = () => {
                 formData.append('image', selectedImage);
                 // formData.append('conversationId', 'default');
 
-                response = await fetch('http://localhost:8000/api/chat/image', {
+                response = await fetch(`${import.meta.env.VITE_API_URL}/api/chat/image`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -83,7 +83,7 @@ export const Chat = () => {
                     body: formData
                 });
             } else {
-                response = await fetch('http://localhost:8000/api/chat/text', {
+                response = await fetch(`${import.meta.env.VITE_API_URL}/api/chat/text`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ export const Dashboard = () => {
         try {
             if (!user) return;
             const token = await getToken();
-            const res = await fetch(`http://localhost:8000/api/dashboard`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/dashboard`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
