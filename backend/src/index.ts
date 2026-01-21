@@ -24,6 +24,7 @@ import eventsRoutes from './routes/eventsRoutes';
 import dashboardRoutes from './routes/dashboardRoutes';
 import profileRoutes from './routes/profileRoutes';
 import authRoutes from './routes/authRoutes';
+import healthRoutes from './routes/healthRoutes';
 
 app.use('/api/chat', chatRoutes);
 app.use('/api/timetable', timetableRoutes);
@@ -34,6 +35,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/health', healthRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
