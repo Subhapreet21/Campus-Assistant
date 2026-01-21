@@ -116,6 +116,8 @@ FACULTY_SECRET=faculty123
 
 **Frontend (`frontend/.env`)**
 ```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
 ```
 
